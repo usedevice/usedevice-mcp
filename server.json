@@ -1,0 +1,18 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-09-29/server.schema.json",
+  "name": "io.github.usedevice/usedevice-mcp",
+  "description": "Mobile devices for AI agents: iOS Simulators, Android Emulators, real iPhones, Pixels and Galaxies. Early access: list devices, ask the site, reserve a slot.",
+  "version": "0.1.0",
+  "repository": { "url": "https://github.com/usedevice/usedevice-mcp", "source": "github" },
+  "websiteUrl": "https://www.usedevice.cloud/mcp",
+  "packages": [
+    {
+      "registryType": "npm",
+      "registryBaseUrl": "https://registry.npmjs.org",
+      "identifier": "usedevice-mcp",
+      "version": "0.1.0",
+      "runtimeHint": "npx",
+      "transport": { "type": "stdio" }
+    }
+  ]
+}

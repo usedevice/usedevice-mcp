@@ -1,0 +1,14 @@
+import { Client } from "@modelcontextprotocol/sdk/client/index.js";
+import { StdioClientTransport } from "@modelcontextprotocol/sdk/client/stdio.js";
+const t = new StdioClientTransport({ command: "node", args: ["./server.js"], env: { ...process.env } });
+const c = new Client({ name: "test", version: "0" });
+await c.connect(t);
+const tools = await c.listTools();
+console.log("tools:", tools.tools.map(x => x.name).join(", "));
+const a = await c.callTool({ name: "ask", arguments: { question: "do you have android emulators" } });
+console.log("ask ->", a.content[0].text.split("\n").filter(Boolean).slice(0, 3).join(" | ").slice(0, 200));
+const s = await c.callTool({ name: "status", arguments: {} });
+console.log("status ->", s.content[0].text.split("\n").filter(Boolean)[0].slice(0, 120));
+const r = await c.callTool({ name: "reserve_device", arguments: { device: "probe-mcp", task: "mcp client test", access: "shared" } });
+console.log("reserve ->", r.content[0].text.slice(0, 90));
+await c.close();

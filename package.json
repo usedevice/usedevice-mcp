@@ -1,0 +1,50 @@
+{
+  "name": "usedevice-mcp",
+  "version": "0.1.0",
+  "description": "MCP server for usedevice: mobile devices for AI agents (iOS Simulators, Android Emulators, real iPhones, Pixels and Galaxies). Early access: list devices, ask the site, reserve a slot.",
+  "type": "module",
+  "bin": {
+    "usedevice-mcp": "server.js"
+  },
+  "files": [
+    "server.js",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "ai-agents",
+    "mobile",
+    "ios",
+    "android",
+    "real-devices",
+    "emulator",
+    "simulator",
+    "device-cloud",
+    "usedevice"
+  ],
+  "homepage": "https://www.usedevice.cloud/mcp",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.0",
+    "zod": "^3.23.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/usedevice/usedevice-mcp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/usedevice/usedevice-mcp/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "test": "node test.mjs"
+  },
+  "mcpName": "io.github.usedevice/usedevice-mcp"
+}

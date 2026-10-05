@@ -1,0 +1,26 @@
+name: Publish to npm
+
+# Runs when you click "Run workflow" in the Actions tab, or when you publish a GitHub release.
+# Needs one repository secret: NPM_TOKEN (an npm "granular access token" with publish rights).
+on:
+  workflow_dispatch: {}
+  release:
+    types: [published]
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          registry-url: https://registry.npmjs.org
+      - run: npm install --no-package-lock
+      - run: npm test
+      - run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
